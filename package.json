@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/petrepan/backend-weekly-task#readme",
   "dependencies": {
-    "jest": "^27.0.4"
+    "jest": "^27.0.4",
+    "node-fetch": "^2.6.1"
   }
 }
