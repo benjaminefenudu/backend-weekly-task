@@ -1,49 +1,20 @@
-const https = require('https');
-
-https.get("https://jsonplaceholder.typicode.com/users", (resp) => {
-  let data = '';
-
-  // A chunk of data has been received.
-  resp.on('data', (chunk) => {
+// METHOD 1 - HTTPS
+const https = require("https");
+let data = "";
+https.get("https://jsonplaceholder.typicode.com/users", (res) => {
+  res.on("data", (chunk) => {
     data += chunk;
   });
 
-  // The whole response has been received. Print out the result.
-  resp.json('end', () => {
-    for (let i = 0; i < json.length; i++) {
-            console.log(json[i].name);
-          }
+  res.on("end", () => {
+    data = JSON.parse(data);
+    for (let i = 0; i < data.length; i++) {
+      console.log(data[i].name);
+    }
   });
-
-}).on("error", (err) => {
-  console.log("Error: " + err.message);
 });
 
-
-
-// // METHOD 2
-// const Http = new XMLHttpRequest();
-// const url='https://jsonplaceholder.typicode.com/posts';
-// Http.open("GET", url);
-// Http.send();
-
-// Http.onreadystatechange = (e) => {
-//   console.log(Http.responseText)
-// }
-
-
-
-// // METHOD 3
-// const request = require('request');
-
-// request('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', { json: true }, (err, res, body) => {
-//   if (err) { return console.log(err); }
-//   console.log(body.url);
-//   console.log(body.explanation);
-// });
-
-
-// // METHOD 4
+// // METHOD 2 - NODE-FETCH
 // const fetch = require("node-fetch");
 
 // fetch("https://jsonplaceholder.typicode.com/users")
@@ -53,3 +24,20 @@ https.get("https://jsonplaceholder.typicode.com/users", (resp) => {
 //       console.log(json[i].name);
 //     }
 //   });
+
+// METHOD 3 - XMLHTTPREQUEST - Deprecated - Works on Client-side
+// const request = new XMLHttpRequest();
+// const url = "https://jsonplaceholder.typicode.com/users";
+// request.open("GET", url);
+// request.send();
+// request.onload = () => {
+//   console.log(request);
+//   if (request.status === 200) {
+//     users = JSON.parse(request.response);
+//     for (let i = 0; i < users.length; i++) {
+//       console.log(users[i].name);
+//     }
+//   } else {
+//     console.log(`error ${request.status}`);
+//   }
+// };
