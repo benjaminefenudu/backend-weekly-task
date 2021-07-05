@@ -8,18 +8,17 @@ let status;
 
 const server = http
   .createServer((req, res) => {
-    let path = "./";
     if (req.url === "/" || req.url === "/home") {
-      path = path + "index.html";
+      path = "./public/index.html";
       status = 200;
     } else if (req.url === "/about" || req.url === "/about-us") {
-      path = path + "about.html";
+      path = "./public/about.html";
       status = 200;
     } else if (req.url === "/contact") {
-      path = path + "contact.html";
+      path = "./public/contact.html";
       status = 200;
     } else {
-      path = path + "error.html";
+      path = "./public/error.html";
       status = 404;
     }
 
