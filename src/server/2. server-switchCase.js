@@ -11,17 +11,11 @@ const server = http
     let path = "./";
     switch (req.url) {
       case "/":
-        path = path + "index.html";
-        status = 200;
-        break;
       case "/home":
         path = path + "index.html";
         status = 200;
         break;
       case "/about":
-        path = path + "about.html";
-        status = 200;
-        break;
       case "/about-us":
         path = path + "about.html";
         status = 200;

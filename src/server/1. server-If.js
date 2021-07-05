@@ -9,16 +9,10 @@ let status;
 const server = http
   .createServer((req, res) => {
     let path = "./";
-    if (req.url === "/") {
+    if (req.url === "/" || req.url === "/home") {
       path = path + "index.html";
       status = 200;
-    } else if (req.url === "/home") {
-      path = path + "index.html";
-      status = 200;
-    } else if (req.url === "/about") {
-      path = path + "about.html";
-      status = 200;
-    } else if (req.url === "/about-us") {
+    } else if (req.url === "/about" || req.url === "/about-us") {
       path = path + "about.html";
       status = 200;
     } else if (req.url === "/contact") {
