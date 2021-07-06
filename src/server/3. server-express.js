@@ -6,14 +6,14 @@ const fs = require("fs");
 
 const port = process.env.PORT || 3000;
 
-app.use((req, res) => {
+app.get((req, res) => {
   routes = {
     "/": "index.html",
     "/home": "index.html",
     "/about": "about.html",
     "/about-us": "about.html",
     "/contact": "contact.html",
-  };
+  }
 
   var url = req.url;
 
