@@ -1,4 +1,4 @@
-// ATTEMPTED - NOT YET WORKING
+// ATTEMPTED CREATING ROUTES - NOT YET WORKING
 
 const express = require("express");
 const app = express();

@@ -1,4 +1,7 @@
-// ATTEMPTED - NOT YET WORKING
+// ATTEMPTED EXPRESS-SERVER - WORKING
+// Utilized res.redirect to redirect from /about-us to /about
+// Not yet found conditional syntax to add two or more URL choices to "/"
+// like I could do with SWITCH CASEs and IFs.
 
 const express = require("express");
 const app = express();
@@ -6,41 +9,6 @@ const path = require("path");
 
 const port = process.env.PORT || 3000;
 
-<<<<<<< HEAD
-app.get((req, res) => {
-  routes = {
-    "/": "index.html",
-    "/home": "index.html",
-    "/about": "about.html",
-    "/about-us": "about.html",
-    "/contact": "contact.html",
-  }
-
-  var url = req.url;
-
-  if (routes[url] !== undefined) {
-    fs.readFile(route[url].value, (err, data) => {
-      if (err) {
-        return console.error(err);
-      }
-      res.writeHead(200, { "Content-Type": "text/html" });
-      res.end(data);
-      console.log(`Client requested ${url}.`);
-      console.log(`Client was served ${route[url]}.`);
-    });
-  } else {
-    fs.readFile("./error.html", (err, data) => {
-      if (err) {
-        return console.error(err);
-      }
-      res.writeHead(status, { "Content-Type": "text/html" });
-      res.end(data);
-      console.log(`Client requested ${url}.`);
-      console.log(`Client was served ${route[url]}.`);
-    });
-  }
-});
-=======
 app.get("/", (req, res) =>
   res.status(200).sendFile(path.join(__dirname, "public", "index.html"))
 );
@@ -54,7 +22,7 @@ app.get("/about", (req, res) =>
 );
 
 app.get("/about-us", (req, res) =>
-  res.status(200).sendFile(path.join(__dirname, "public", "about.html"))
+  res.redirect("/about")
 );
 
 app.get("/contact", (req, res) =>
@@ -65,7 +33,6 @@ app.get("*", (req, res) =>
   res.status(404).sendFile(path.join(__dirname, "public", "error.html"))
 );
 
->>>>>>> refs/remotes/origin/main
 app.listen(port, () => {
   console.log(`Server listening on port ${port}...`);
 });
