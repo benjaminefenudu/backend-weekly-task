@@ -8,24 +8,23 @@ let status;
 
 const server = http
   .createServer((req, res) => {
-    let path = "./";
     switch (req.url) {
       case "/":
       case "/home":
-        path = path + "index.html";
+        path = "./public/index.html";
         status = 200;
         break;
       case "/about":
       case "/about-us":
-        path = path + "about.html";
+        path = "./public/about.html";
         status = 200;
         break;
       case "/contact":
-        path = path + "contact.html";
+        path = "./public/contact.html";
         status = 200;
         break;
       default:
-        path = path + "error.html";
+        path = "./public/error.html";
         status = 404;
     }
 

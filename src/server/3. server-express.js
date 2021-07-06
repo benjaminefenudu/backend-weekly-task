@@ -2,10 +2,11 @@
 
 const express = require("express");
 const app = express();
-const fs = require("fs");
+const path = require("path");
 
 const port = process.env.PORT || 3000;
 
+<<<<<<< HEAD
 app.get((req, res) => {
   routes = {
     "/": "index.html",
@@ -39,6 +40,32 @@ app.get((req, res) => {
     });
   }
 });
+=======
+app.get("/", (req, res) =>
+  res.status(200).sendFile(path.join(__dirname, "public", "index.html"))
+);
+
+app.get("/home", (req, res) =>
+  res.status(200).sendFile(path.join(__dirname, "public", "index.html"))
+);
+
+app.get("/about", (req, res) =>
+  res.status(200).sendFile(path.join(__dirname, "public", "about.html"))
+);
+
+app.get("/about-us", (req, res) =>
+  res.status(200).sendFile(path.join(__dirname, "public", "about.html"))
+);
+
+app.get("/contact", (req, res) =>
+  res.status(200).sendFile(path.join(__dirname, "public", "contact.html"))
+);
+
+app.get("*", (req, res) =>
+  res.status(404).sendFile(path.join(__dirname, "public", "error.html"))
+);
+
+>>>>>>> refs/remotes/origin/main
 app.listen(port, () => {
   console.log(`Server listening on port ${port}...`);
 });
