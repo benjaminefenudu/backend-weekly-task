@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 // Importing products data
-let Products = require("./Models/Products");
+let Products = require("./Models/Product");
 
 const PORT = process.env.PORT || 3000;
 

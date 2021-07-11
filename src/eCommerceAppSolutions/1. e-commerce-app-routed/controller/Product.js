@@ -1,5 +1,5 @@
 // Importing products data
-let Products = require("../models/products");
+let Products = require("../models/Product");
 
 // =-=-=-= Read all existing product records =-=-=-=
 const getProducts = (req, res) => {

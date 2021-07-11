@@ -3,7 +3,7 @@ const app = express();
 app.use(express.json()); // Parse json
 
 // Import all products CRUD processes from router
-const Products = require("./routes/products");
+const Products = require("./routes/Product");
 
 const PORT = process.env.PORT || 3000;
 
