@@ -9,10 +9,15 @@ const getProducts = (req, res) => {
 // =-=-=-= Create new product record =-=-=-=
 const createProduct = (req, res) => {
   const Product = req.body;
-  if (!Product.name || !Product.desc || !Product.image || !Product.price) {
+  if (
+    !Product.name ||
+    !Product.description ||
+    !Product.image ||
+    !Product.price
+  ) {
     return res.status(400).json({
       sucess: false,
-      msg: "Please provide product name, desc, image and price.",
+      msg: "Please provide product name, description, image and price.",
     });
   }
   let id = Products.length + 1;

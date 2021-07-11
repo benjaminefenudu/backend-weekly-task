@@ -17,10 +17,15 @@ app.get("/products/", (req, res) => {
 // =-=-=-= Create a new product =-=-=-=
 app.post("/products/", (req, res) => {
   const Product = req.body;
-  if (!Product.name || !Product.desc || !Product.image || !Product.price) {
+  if (
+    !Product.name ||
+    !Product.description ||
+    !Product.image ||
+    !Product.price
+  ) {
     return res.status(400).json({
       sucess: false,
-      msg: "Please provide product name, desc, image and price.",
+      msg: "Please provide product name, description, image and price.",
     });
   }
   let id = Products.length + 1;
