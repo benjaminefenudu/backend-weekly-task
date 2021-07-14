@@ -46,7 +46,7 @@ app.post("/products/", (req, res) => {
     });
   }
   let id = Products.length + 1; // create unique id
-  const newProduct = { id, ...req.body };
+  const newProduct = { id, ...Product };
   // add new product to end of products array
   Products.push(newProduct);
   return res.status(200).json({

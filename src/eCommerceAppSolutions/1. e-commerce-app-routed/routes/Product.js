@@ -8,7 +8,7 @@ const {
   createProduct,
   updateProduct,
   deleteProduct,
-} = require("../controller/Product");
+} = require("../controllers/Product");
 
 // Setting routes for products CRUD processes
 router.route("/").get(getProducts).post(createProduct);
